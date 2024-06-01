@@ -20,7 +20,7 @@ public class ComplaintResource {
     public WebResponse<PenjelasanBidangResponse> getP03PenjelasanBidang(@QueryParam("reportNumber") String reportNumber) {
         PenjelasanBidangResponse response = complaintService.getPenjelasanBidang(reportNumber);
 
-        if (response.getOutRc().equals("00")) {
+        if (response != null) {
             return WebResponse.<PenjelasanBidangResponse>builder()
                     .status(Response.Status.OK.getStatusCode())
                     .message("SUKSES")
