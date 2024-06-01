@@ -1,5 +1,6 @@
 package org.kevin.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,7 +12,8 @@ public class BidangUnit {
     public Long bidangUnitId;
     public String bidangUnitName;
 
-    @OneToMany(mappedBy = "bidangUnit")
+    @OneToMany(mappedBy = "bidangUnit",fetch = FetchType.EAGER)
+    @JsonBackReference
     public List<BidangExplain> bidangExplains;
 
 }

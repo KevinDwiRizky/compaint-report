@@ -1,5 +1,6 @@
 package org.kevin.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +20,7 @@ public class HistRunWorkflow {
     public Long runWorkflowId;
     public String lastStatus;
 
-    @OneToMany(mappedBy = "histRunWorkflow")
+    @OneToMany(mappedBy = "histRunWorkflow", fetch = FetchType.EAGER)
+    @JsonBackReference
     public List<Complaint> complaints;
 }
