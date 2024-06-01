@@ -11,6 +11,8 @@ import org.kevin.entity.BidangExplain;
 @NoArgsConstructor
 @Builder
 public class PenjelasanBidangResponse {
+    private String outRc;
+    private String outMessage;
     private String lastStatus;
     private BidangExplain bidangExplain;
     private String namaFungsi;

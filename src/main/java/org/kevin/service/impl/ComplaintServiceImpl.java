@@ -45,9 +45,9 @@ public class ComplaintServiceImpl implements ComplaintService {
 
             String namaFungsi = bidangExplain.bidangUnit != null ? bidangExplain.bidangUnit.bidangUnitName : null;
 
-            return new PenjelasanBidangResponse(lastStatus, bidangExplain, namaFungsi);
+            return new PenjelasanBidangResponse("00", "SUKSES", lastStatus, bidangExplain, namaFungsi);
         } else {
-            return new PenjelasanBidangResponse( null, null, null);
+            return new PenjelasanBidangResponse("01", "DATA TIDAK DITEMUKAN", null, null, null);
         }
     }
 }

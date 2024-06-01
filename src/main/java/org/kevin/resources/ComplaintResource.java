@@ -17,10 +17,10 @@ public class ComplaintResource {
     @GET
     @Path("/penjelasan-bidang")
     @Produces(MediaType.APPLICATION_JSON)
-    public WebResponse<PenjelasanBidangResponse> getPenjelasanBidang(@QueryParam("reportNumber") String reportNumber) {
+    public WebResponse<PenjelasanBidangResponse> getP03PenjelasanBidang(@QueryParam("reportNumber") String reportNumber) {
         PenjelasanBidangResponse response = complaintService.getPenjelasanBidang(reportNumber);
 
-        if (response != null) {
+        if (response.getOutRc().equals("00")) {
             return WebResponse.<PenjelasanBidangResponse>builder()
                     .status(Response.Status.OK.getStatusCode())
                     .message("SUKSES")
